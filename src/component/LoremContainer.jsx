@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 import text from "../data";
 function LoremContainer() {
   const [count, setCount] = useState(1);
@@ -34,7 +35,13 @@ function LoremContainer() {
           Generate
         </button>
       </form>
-      <p className="text-sm text-gray-700">{lorem}</p>
+      {lorem.map((item) => {
+        return (
+          <p className="text-sm text-gray-700" key={nanoid()}>
+            {item}
+          </p>
+        );
+      })}
     </div>
   );
 }
